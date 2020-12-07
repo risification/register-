@@ -13,9 +13,7 @@ def register(username, password, check_password):
 
 
 username = input('введите ваш логин: ')
-username = username.strip()
 password = input('введите ваш пароль: ')
-password = password.strip()
 check_password = input('введите ваш пароль еще раз: ')
 answer = register(username, password, check_password)
 
@@ -103,6 +101,7 @@ sort(phone, computer, hardcard, videocard)
 
 def my_input():
     my_input = input('введите продукт для введение в консоль: ')
+    my_input = my_input.strip()
     if my_input == 'phone':
         file_phone = open('phone.txt')
         file_phone = file_phone.readlines()
