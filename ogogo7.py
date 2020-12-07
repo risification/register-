@@ -12,9 +12,9 @@ def register(username, password, check_password):
         print('не правильный пароль')
 
 
-username = input('Please input your username: ')
-password = input('Please input your password: ')
-check_password = input('Please input your password again: ')
+username = input('введите ваш логин: ')
+password = input('введите ваш пароль: ')
+check_password = input('введите ваш пароль еще раз: ')
 answer = register(username, password, check_password)
 
 
