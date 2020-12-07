@@ -38,14 +38,11 @@ def auth(tries: int):
         password1 = input('введите пожалуйста пароль: ')
         username1 = username1.strip()
         password1 = password1.strip()
-        if username1 == check_nameuser_auth:
-            if password1 == check_password:
-                print('вы успешно вошли!!!')
-                break
-            else:
-                print('пароль не сопадает пожалуйста повторите пароль')
+        if username1 == check_nameuser_auth and password1 == check_password:
+            print('вы успешно вошли!!!')
+            break
         else:
-            print("логин не совпадает повторите логин")
+            print('вы ввели не правильно пароль или логин')
         count += 1
 
 
@@ -69,25 +66,25 @@ def all_products(products):
 all_products(products)
 
 
-def sort(option):
+def sort(phone, computer, hardcard, videocard):
     with open('all_prodicts.txt') as fproduct:
         list_of_product = fproduct.readlines()
-        if option == 'phone':
+        if phone == 'phone':
             with open('phone.txt', 'w') as gphone:
                 for line in list_of_product:
                     if 'iphone' in line or 'samsung' in line or 'sony' in line or 'nokia' in line:
                         gphone.write(line)
-        elif option == "computer":
+        elif computer == "computer":
             with open('computer.txt', 'w') as gcomputer:
                 for line in list_of_product:
                     if 'acer' in line or 'asus' in line or 'hp' in line or 'mac' in line or 'lenovo' in line:
                         gcomputer.write(line)
-        elif option == 'vedeocard':
+        elif videocard == 'videocard':
             with open('videocard.txt', 'w')as gvideocard:
                 for line in list_of_product:
                     if 'geforce' in line or 'amd' in line or 'intel' in line:
                         gvideocard.write(line)
-        elif option == 'hardcard':
+        elif hardcard == 'hardcard':
             with open('hardcard.txt', 'w')as ghardcard:
                 for line in list_of_product:
                     if 'adata' in line or 'kingston' in line:
@@ -95,9 +92,33 @@ def sort(option):
         print('сортировака прошла успешно!!!')
 
 
+phone = 'phone'
+computer = 'computer'
+hardcard = 'hardcard'
+videocard = 'videocard'
+sort(phone, computer, hardcard, videocard)
+
+
 def my_input():
-    my_input = input('введите продукт: ')
-    sort(my_input)
+    my_input = input('введите продукт для введение в консоль: ')
+    if my_input == 'phone':
+        file_phone = open('phone.txt')
+        file_phone = file_phone.readlines()
+        print(file_phone)
+    elif my_input == 'computer':
+        file_computer = open('computer.txt')
+        file_computer = file_computer.readlines()
+        print(file_computer)
+    elif my_input == 'videocard':
+        file_videocard = open('videocard.txt')
+        file_videocard = file_videocard.readlines()
+        print(file_videocard)
+    elif my_input == 'hardcard':
+        file_hardcard = open('hardcard.txt')
+        file_hardcard = file_hardcard.readlines()
+        print(file_hardcard)
+    else:
+        print('вы ввели не правильный продукт')
 
 
 my_input()
