@@ -13,7 +13,9 @@ def register(username, password, check_password):
 
 
 username = input('введите ваш логин: ')
+username = username.strip()
 password = input('введите ваш пароль: ')
+password = password.strip()
 check_password = input('введите ваш пароль еще раз: ')
 answer = register(username, password, check_password)
 
