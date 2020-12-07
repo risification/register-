@@ -1,0 +1,4 @@
+adata hdd1tb
+adata ssd
+kingston 1tb
+kingston ssd
