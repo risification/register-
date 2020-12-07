@@ -1,4 +1,5 @@
-def register(username, password, check_password):
+# зарегистртроват
+'''def register(username, password, check_password):
     if password == check_password:
         if 8 < len(username) < 40 and 8 <= len(password) < 14:
             print('регистрация успешна')
@@ -12,12 +13,12 @@ def register(username, password, check_password):
         print('не правильный пароль')
 
 
-username = input('введите ваш логин: ')
+username = input('введите ввуаш логин: ')
 password = input('введите ваш пароль: ')
 check_password = input('введите ваш пароль еще раз: ')
 answer = register(username, password, check_password)
 
-
+# проверка кода
 def check_code(guess, answer):
     if answer == guess:
         print('успешно можете заходить')
@@ -30,7 +31,7 @@ check_code(1234, answer)
 check_nameuser_auth = username
 check_password_auth = password
 
-
+# регистрация
 def auth(tries: int):
     count = 0
     while count < tries:
@@ -47,14 +48,14 @@ def auth(tries: int):
 
 
 auth(3)
-
+'''
 products = ['Acer', 'ASUS razer', 'HP', 'hp zenbook', 'acer aspire', 'ihpone x', 'Iphone PRO MAX', 'samsung galaxy',
             'samsung TAB515',
             'Sony Ericson', 'nokia 3310', 'Nokia WIN', 'adata hdd1tb', 'ADATA SSD', 'Kingston 1tb', 'kiNGston ssd',
             'GeForce RTX',
             'AMD', 'amd rx760', 'Intel HD', 'MacbOOk PRO', 'iMac', 'macbook air', 'lenovo', 'AMD', 'aMd ryzen']
 
-
+# перевод продуктов в файл
 def all_products(products):
     with open('all_prodicts.txt', 'w')as produc:
         for line in products:
@@ -65,7 +66,7 @@ def all_products(products):
 
 all_products(products)
 
-
+# сортировка
 def sort(phone, computer, hardcard, videocard):
     with open('all_prodicts.txt') as fproduct:
         list_of_product = fproduct.readlines()
@@ -73,21 +74,29 @@ def sort(phone, computer, hardcard, videocard):
             with open('phone.txt', 'w') as gphone:
                 for line in list_of_product:
                     if 'iphone' in line or 'samsung' in line or 'sony' in line or 'nokia' in line:
+                        line = line.strip()
+                        print(line)
                         gphone.write(line)
         elif computer == "computer":
             with open('computer.txt', 'w') as gcomputer:
                 for line in list_of_product:
                     if 'acer' in line or 'asus' in line or 'hp' in line or 'mac' in line or 'lenovo' in line:
+                        line = line.strip()
+                        print(line)
                         gcomputer.write(line)
         elif videocard == 'videocard':
             with open('videocard.txt', 'w')as gvideocard:
                 for line in list_of_product:
                     if 'geforce' in line or 'amd' in line or 'intel' in line:
+                        line = line.strip()
+                        print(line)
                         gvideocard.write(line)
         elif hardcard == 'hardcard':
             with open('hardcard.txt', 'w')as ghardcard:
                 for line in list_of_product:
                     if 'adata' in line or 'kingston' in line:
+                        line = line.strip()
+                        print(line)
                         ghardcard.write(line)
         print('сортировака прошла успешно!!!')
 
@@ -98,25 +107,25 @@ hardcard = 'hardcard'
 videocard = 'videocard'
 sort(phone, computer, hardcard, videocard)
 
-
+# вывести товар
 def my_input():
     my_input = input('введите продукт для введение в консоль: ')
     my_input = my_input.strip()
     if my_input == 'phone':
         file_phone = open('phone.txt')
-        file_phone = file_phone.readlines()
+        file_phone = file_phone.read()
         print(file_phone)
     elif my_input == 'computer':
         file_computer = open('computer.txt')
-        file_computer = file_computer.readlines()
+        file_computer = file_computer.read()
         print(file_computer)
     elif my_input == 'videocard':
         file_videocard = open('videocard.txt')
-        file_videocard = file_videocard.readlines()
+        file_videocard = file_videocard.read()
         print(file_videocard)
     elif my_input == 'hardcard':
         file_hardcard = open('hardcard.txt')
-        file_hardcard = file_hardcard.readlines()
+        file_hardcard = file_hardcard.read()
         print(file_hardcard)
     else:
         print('вы ввели не правильный продукт')
